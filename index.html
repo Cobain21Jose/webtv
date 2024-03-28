@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jocotitlán Tv</title>
+<style>
+  /* Estilos generales */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    text-align: center;
+    padding-top: 20px;
+    color: #b1c92b; /* Color de acento */
+  }
+
+  /* Estilos para el contenedor principal */
+  #mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan cuando no haya suficiente espacio */
+  }
+
+  /* Estilos para el reproductor principal */
+  #mainPlayer {
+    width: 600px; /* Ancho del reproductor principal */
+    height: 400px; /* Altura del reproductor principal */
+    background-color: #121212; /* Fondo oscuro */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.829);
+    margin-right: 20px;
+    transition: transform 0.3s ease; /* Transición para el efecto de escala */
+  }
+
+  #mainPlayer:hover {
+    transform: scale(1.05); /* Escala al 105% en hover */
+  }
+
+  /* Estilos para el reproductor de lista de reproducción */
+  #playlistPlayer {
+    width: 30%; /* Ancho del reproductor de lista de reproducción */
+    max-height: 400px; /* Altura máxima del reproductor de lista de reproducción */
+    overflow-y: auto; /* Habilitar el desplazamiento vertical si es necesario */
+    background-color: #202020; /* Fondo más oscuro */
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(235, 221, 221, 0.8);
+    padding: 10px;
+    flex-shrink: 0; /* Evitar que el reproductor de lista de reproducción se reduzca cuando no hay suficiente espacio */
+    margin-bottom: 20px;
+  }
+
+  /* Estilos para los elementos de la lista de reproducción */
+  .playlistItem {
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /* Transición para el cambio de color de fondo */
+    width: 200px; /* Ancho del elemento de la lista de reproducción */
+  }
+
+  .playlistItem:hover {
+    background-color: #b1c92b; /* Color de acento al pasar el cursor */
+  }
+
+  .playlistItem img {
+    width: 100%; /* Ajustar el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    max-width: 200px; /* Establecer el ancho máximo de la imagen */
+    max-height: 200px; /* Establecer la altura máxima de la imagen */
+  }
+
+  /* Estilos para la descripción del canal */
+  #channelDescription {
+    width: 100%; /* Ancho completo */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* Estilos para los horarios */
+  #schedule {
+    width: 100%; /* Ancho completo */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Estilos para la información del clima */
+  #weather {
+    width: 100%; /* Ancho completo */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Jocotitlán Tv</h1>
+
+<!-- Contenedor principal -->
+<div id="mainContainer">
+  <!-- Reproductor principal -->
+  <div id="mainPlayer">
+    <iframe id="mainIframe" frameborder="0" allowfullscreen="true" style="width:100%; height:100%;"></iframe>
+  </div>
+
+  <!-- Reproductor de lista de reproducción -->
+  <div id="playlistPlayer">
+    <!-- Lista de reproducción -->
+    <div class="playlistItem" onclick="changeChannel('azteca7')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Logo_Azteca_7_2011.svg/965px-Logo_Azteca_7_2011.svg.png" alt="Thumbnail">
+      <p>Canal Azteca 7</p>
+    </div>
+    <div class="playlistItem" onclick="changeChannel('afizzionados')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Afizzionados_Logo.svg/2560px-Afizzionados_Logo.svg.png" alt="Thumbnail">
+      <p>Canal Afizzionados</p>
+    </div>
+    <div class="playlistItem" onclick="changeChannel('canal5')">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Canal_5_Mexico_logo_2014.svg/1200px-Canal_5_Mexico_logo_2014.svg.png" alt="Thumbnail">
+      <p>Canal 5</p>
+    </div>
+    <div class="playlistItem" onclick="changeChannel('goldenpremier')">
+      <img src="https://via.placeholder.com/200" alt="Thumbnail">
+      <p>Canal Edege</p>
+    </div>
+    <div class="playlistItem" onclick="changeChannel('directvsports')">
+      <img src="https://via.placeholder.com/200" alt="Thumbnail">
+      <p>Direct Tv Sports</p>
+    </div>
+    <div class="playlistItem" onclick="changeChannel('lasestrellas')">
+      <img src="https://via.placeholder.com/200" alt="Thumbnail">
+      <p>Las Estrellas</p>
+    </div>
+  </div>
+
+  <div id="Acerca de Nosotros">
+    <div>
+
+    </div>
+    <h2>Acerca de la Pagina Web</h2>
+    <p>Star Tv Plus es una distribucion Web para la Retramicion de Tv por Internet.</p>
+  </div>
+
+  <!-- Horarios -->
+  <div id="schedule">
+    <h2>Horarios</h2>
+    <p>Lunes a Viernes: 8:00 AM - 10:00 PM</p>
+    <p>Sábados y Domingos: 10:00 AM - 8:00 PM</p>
+  </div>
+
+  <!-- Información del Clima -->
+  <div id="weather">
+    <h2>Consulta de Clima</h2>
+    <p id="weatherInfo">-</p>
+  </div>
+</div>
+
+<script>
+  // Función para cambiar el canal
+  function changeChannel(channel) {
+    var mainIframe = document.getElementById('mainIframe');
+    mainIframe.src = 'https://embed.telextrema.com/embed2/' + channel + '.html';
+  }
+
+  // Función para obtener el clima
+  function obtenerClima() {
+    var ciudad = "Jocotitlán, MX"; // Ciudad predefinida
+    var api_key = "41ff6b1002603996712604795e684e1f"; // Tu clave de API de OpenWeatherMap
+
+    try {
+      // Construir la URL de la solicitud con la ciudad proporcionada
+      var url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${api_key}&units=metric`;
+
+      // Realizar la solicitud HTTP
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al obtener los datos.');
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Extraer la información relevante de los datos recibidos
+          var nombre_ciudad = data.name;
+          var pais = data.sys.country;
+          var clima_actual = data.weather[0].description;
+          var temperatura_actual = data.main.temp;
+          var sensacion_termica = data.main.feels_like;
+          var humedad = data.main.humidity;
+          var velocidad_viento = data.wind.speed;
+
+          // Mostrar la información al usuario
+          var weatherInfo = `Clima en ${nombre_ciudad}, ${pais}: ${clima_actual}\nTemperatura actual: ${temperatura_actual}°C\nSensación térmica: ${sensacion_termica}°C\nHumedad: ${humedad}%\nVelocidad del viento: ${velocidad_viento} m/s`;
+          document.getElementById('weatherInfo').innerText = weatherInfo;
+        })
+        .catch(error => {
+          alert(error);
+        });
+    } catch (error) {
+      alert('Se produjo un error: ' + error);
+    }
+  }
+
+  // Reproducir automáticamente un canal al cargar la página
+  window.onload = function() {
+    changeChannel('azteca7'); // Cambia 'azteca7' por el canal que desees reproducir automáticamente al cargar la página
+    obtenerClima(); // Obtener el clima automáticamente al cargar la página
+  };
+</script>
+
+</body>
+</html>
